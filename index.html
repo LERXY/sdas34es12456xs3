@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Sarabun Font Example</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ใช้ฟอนต์ Sarabun กับทุกองค์ประกอบในหน้า */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            background: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #222; /* เปลี่ยนเป็นสีเข้ม */
+        color: white;
+        padding: 15px 30px; /* เพิ่ม padding ให้สูงขึ้น */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        }
+        .logo {
+            font-weight: bold;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            transition: 0.3s;
+        }
+        ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: flex-end;
+        }
+        ul li {
+            margin: 0 10px;
+        }
+        ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        ul li a:hover {
+            color: #ffcc00;
+        }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            ul {
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: #333;
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px 20px;
+                border-radius: 8px;
+                display: none;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            ul.active {
+                display: flex;
+            }
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translateY(8px);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translateY(-8px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: inherit;">MULTIMEDIA TECHNOLOGY</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="หลักสูตรสาขา2.html">หลักสูตรสาขา</a></li>
+            <li><a href="อาจารย์2.html">อาจารย์</a></li>
+            <li><a href="กิจกรรม2.html">กิจกรรม</a></li>
+            <li><a href="สมัครเรียน2.html">สมัครเรียน</a></li>
+            <li><a href="ติดต่อ2.html">ติดต่อ</a></li>
+        </ul>
+    </nav>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+        
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Full-Width Banner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Sarabun', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Slider container */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 50vh; /* เปลี่ยนให้แบนเนอร์สูงแค่ 50% ของความสูงหน้าจอ */
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+             z-index: 1; /* กำหนดให้แบนเนอร์อยู่เบื้องหลังปุ่มเมนู */
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 2s ease-in-out;
+            width: 100%;
+        }
+
+        .slide {
+            min-width: 100%; /* ทำให้แต่ละสไลด์เต็มหน้าจอ */
+            height: 50vh; /* ทำให้ภาพในแบนเนอร์มีความสูง 50% ของความสูงหน้าจอ */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* ตัวอย่างสไลด์ */
+        .slide:nth-child(1) {
+            background-image: url('https://img2.imgbiz.com/imgbiz/coming-soon-2.png');
+        }
+
+        .slide:nth-child(2) {
+            background-image: url('https://img2.imgbiz.com/imgbiz/-M-1.png');
+        }
+
+        .slide:nth-child(3) {
+            background-image: url('https://img2.imgbiz.com/imgbiz/-M-3.png');
+        }
+        
+
+
+        /* ปุ่มเลื่อน */
+        .buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* จุดสำหรับเลือกสไลด์ */
+        .dots {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: #ffcc00;
+        }
+
+        /* ปรับสำหรับมือถือ */
+        @media (max-width: 360px) 
+            .banner {
+                height: 200px;
+                background: url('https://via.placeholder.com/768x200') no-repeat center center/cover;
+            }
+
+            .banner h1 {
+                font-size: 1.5rem;
+            }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+        </div>
+
+        <!-- ปุ่มเลื่อน -->
+        <div class="buttons">
+            <button class="button" id="prev">❮</button>
+            <button class="button" id="next">❯</button>
+        </div>
+
+        <!-- จุดสำหรับเลือกสไลด์ -->
+        <div class="dots" id="dots">
+            <div class="dot" data-slide="0"></div>
+            <div class="dot" data-slide="1"></div>
+            <div class="dot" data-slide="2"></div>
+        </div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const dots = document.querySelectorAll('.dot');
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+
+        let currentSlide = 0;
+
+        // Function to update the slider position
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        // Navigate to the previous slide
+        prev.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + dots.length) % dots.length;
+            updateSlider();
+        });
+
+        // Navigate to the next slide
+        next.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % dots.length;
+            updateSlider();
+        });
+
+        // Navigate to a specific slide when clicking on a dot
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentSlide = parseInt(dot.dataset.slide);
+                updateSlider();
+            });
+        });
+
+        // Auto-slide every 5 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % dots.length;
+            updateSlider();
+        }, 5000);
+    </script>
+</body>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เทคโนโลยีมัลติมีเดีย</title>
+    <style>
+        @font-face {
+            font-family: 'ThaiSarabun';
+            src: url('thsarabunnew-webfont.woff') format('woff');
+        }
+
+        body {
+            font-family: 'ThaiSarabun', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .text-section {
+            width: 50%;
+            padding-right: 40px;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #000000;
+        }
+
+        .text-section h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+
+        .text-section p {
+            color: #000000;
+        }
+
+        .image-section {
+            width: 45%;
+            text-align: center;
+        }
+
+        .image-section img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .image-section img:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .text-section {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .image-section {
+                width: 100%;
+            }
+
+            .text-section h1 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="text-section">
+            <h1>สาขาวิชาเทคโนโลยีมัลติมีเดีย</h1>
+            <p>
+                สาขาเทคโนโลยีมัลติมีเดียเป็นหนึ่งในสาขาที่ตอบโจทย์ความต้องการของยุคดิจิทัลได้อย่างครบวงจร ที่นี่ เราพร้อมที่จะพาคุณไปสำรวจและเรียนรู้ในด้านต่าง ๆ เช่น การออกแบบกราฟิก การพัฒนาแอปพลิเคชัน การสร้างสื่อดิจิทัล และการผลิตเนื้อหาภาพและเสียง ที่จะเปิดโอกาสให้คุณสามารถสร้างสรรค์ผลงานที่มีคุณค่าและสามารถตอบสนองความต้องการของตลาดในอนาคต สาขาของเราไม่เพียงแค่เน้นการเรียนรู้ในห้องเรียน แต่ยังมีการฝึกฝนทักษะจากประสบการณ์จริงผ่านโปรเจกต์และกิจกรรมต่าง ๆ ที่จะช่วยให้คุณเตรียมพร้อมสำหรับการทำงานในอุตสาหกรรมที่เติบโตอย่างรวดเร็ว
+            </p>
+        </div>
+
+        <div class="image-section">
+            <img src="https://sci.rmutsb.ac.th/wp-content/uploads/2024/08/11454.jpg" alt="เทคโนโลยีมัลติมีเดีย">
+        </div>
+    </div>
+</body>
+</html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แนะนำอาจารย์ประจำสาขา</title>
+    <style>
+       @font-face {
+            font-family: 'ThaiSarabun';
+            src: url('thsarabunnew-webfont.woff') format('woff');
+        }
+
+        body {
+            font-family: 'ThaiSarabun', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f7f7f7;
+            color: #000000;
+            line-height: 1.3;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #000000;
+        }
+
+        .container {
+            display: flex;
+            justify-content: flex-start; /* จัดให้เริ่มจากซ้าย */
+            align-items: flex-start; /* เรียงจากด้านบน */
+            flex-wrap: nowrap; /* ปรับให้เป็นแนวนอน */
+            padding: 50px 20px;
+            max-width: 100%;
+            overflow-x: auto; /* ทำให้มี scroll bar horizontal ถ้าเกินพื้นที่ */
+        }
+
+        .faculty-card {
+            background-color: #fff;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 20px;
+            width: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Image without border and rounded corners */
+        .faculty-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain; /* Ensures the image is not cropped */
+            border-radius: 15px; /* Rounded corners for the image */
+            margin-bottom: 15px; /* Add margin to space out the image */
+        }
+
+        .faculty-card .name {
+            font-size: 1.1rem;
+            margin: 15px 0;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .faculty-card .position {
+            font-size: 1rem;
+            color: #000000;
+            margin-bottom: 15px;
+        }
+
+        .faculty-card .bio {
+            font-size: 1rem;
+            color: #000000;
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+
+        /* Hover effect for the text when you hover over the card */
+        .faculty-card:hover .name, 
+        .faculty-card:hover .position {
+            color: #ff7301;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* จัดการ์ดให้อยู่ในแนวตั้ง */
+            }
+
+            .faculty-card {
+                width: 100%; /* ปรับการ์ดให้เต็มความกว้างของหน้าจอ */
+                margin: 10px 0; /* ปรับ margin ระหว่างการ์ด */
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .faculty-card {
+                padding: 10px; /* ลด padding เพื่อให้ดูเหมาะสม */
+            }
+
+            .faculty-card .name {
+                font-size: 1rem; /* ลดขนาดชื่อ */
+            }
+
+            .faculty-card .position {
+                font-size: 0.9rem; /* ลดขนาดตำแหน่ง */
+            }
+
+            .faculty-card .bio {
+                font-size: 0.9rem; /* ลดขนาดข้อความชีวประวัติ */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>แนะนำอาจารย์ประจำสาขา</h1>
+    <div class="container">
+        <a href="https://sci.rmutsb.ac.th/2024/12/23/%e0%b8%9c%e0%b8%a8-%e0%b8%94%e0%b8%a3-%e0%b8%aa%e0%b8%a3%e0%b8%8a%e0%b8%b1%e0%b8%a2-%e0%b8%8a%e0%b8%a7%e0%b8%a3%e0%b8%b2%e0%b8%87%e0%b8%81%e0%b8%b9%e0%b8%a3/" class="faculty-card">
+            <img src="https://img5.pic.in.th/file/secure-sv1/sorachai1.jpg" alt="อาจารย์ 1">
+            <div class="name">ผศ.ดร.สรชัย ชวรางกูร</div>
+            <div class="position">หัวหน้าภาควิชา</div>
+        </a>
+        
+        <a href="https://sci.rmutsb.ac.th/2024/12/23/%e0%b8%9c%e0%b8%a8-%e0%b8%94%e0%b8%a3-%e0%b8%93%e0%b8%9e%e0%b8%87%e0%b8%a8%e0%b9%80%e0%b8%a7%e0%b8%a3%e0%b8%a3%e0%b8%93%e0%b8%9e%e0%b8%b4%e0%b8%a3%e0%b8%b8%e0%b8%93/" class="faculty-card">
+            <img src="https://img5.pic.in.th/file/secure-sv1/napong.jpg" alt="อาจารย์ 1">
+            <div class="name">ผศ.ดร.ณพงศ์ วรรณพิรุณ</div>
+            <div class="position">หัวหน้าภาควิชา</div>
+        </a>
+
+        <a href="https://sci.rmutsb.ac.th/2024/12/23/%e0%b8%9c%e0%b8%a8-%e0%b8%ad%e0%b8%98%e0%b8%b4%e0%b8%a9%e0%b8%90%e0%b9%8c-%e0%b8%84%e0%b8%b9%e0%b9%88%e0%b9%80%e0%b8%88%e0%b8%a3%e0%b8%b4%e0%b8%8d%e0%b8%96%e0%b8%b2%e0%b8%a7%e0%b8%a3/" class="faculty-card">
+            <img src="https://img5.pic.in.th/file/secure-sv1/athit.jpg" alt="อาจารย์ 1">
+            <div class="name">ผศ.อธิษฐ์ คู่เจริญถาวร</div>
+            <div class="position">หัวหน้าภาควิชา</div>
+        </a>
+
+        <a href="https://sci.rmutsb.ac.th/2024/12/23/%E0%B8%9C%E0%B8%8A-%E0%B8%8A%E0%B8%B1%E0%B8%8A%E0%B8%8E%E0%B8%B2-%E0%B8%8A%E0%B8%A7%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B9%E0%B8%A3/" class="faculty-card">
+            <img src="https://img2.pic.in.th/pic/golf.jpg" alt="อาจารย์ 1">
+            <div class="name">ผช.ชัชฎา ชวรางกูร</div>
+            <div class="position">หัวหน้าภาควิชา</div>
+        </a>
+    </div>
+</body>
+
+
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="แหล่งรวมกิจกรรมดีๆ สำหรับทุกคน ตั้งแต่กิจกรรมเด็ก สัมมนา ไปจนถึงโครงการจิตอาสา">
+    <h1>กิจกรรม</h1>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+    font-family: 'Sarabun', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px; /* ขยายความกว้างสูงสุดของคอนเทนเนอร์ */
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 คอลัมน์ */
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+@media (max-width: 1024px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 คอลัมน์สำหรับหน้าจอขนาดกลาง */
+    }
+}
+
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 คอลัมน์สำหรับหน้าจอขนาดเล็ก */
+    }
+}
+
+@media (max-width: 480px) {
+    .card-grid {
+        grid-template-columns: 1fr; /* 1 คอลัมน์สำหรับหน้าจอมือถือ */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card-grid">
+            <a href="https://example.com/activity1" class="card">
+                <img src="https://scontent.fbkk25-1.fna.fbcdn.net/v/t39.30808-6/467781512_1062923458958396_3389618824824092175_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=JQqbJxTyEyUQ7kNvgHFK2iS&_nc_oc=AdhlV_n04XGOVYg4kiUTrmup-J-A34VlekriBSEa8qk00xnQ-eLvbLFdDb4upMwcwhc&_nc_zt=23&_nc_ht=scontent.fbkk25-1.fna&_nc_gid=AXdgXsZtlIO435zscu5utU0&oh=00_AYABmBfmSxfcievEN2nojIymW9F4F8jWSETPS27k-ohZXg&oe=679BEA98" alt="ภาพกิจกรรมวันเด็กแห่งชาติ">
+                <p>ได้รับรางวัล รองชนะเลิศอันดับหนึ่ง  ในการส่งผลงานภาพยนตร์สั้น ปมหลอน ซ่อนวิญญาณ ตอน แฟลชไดรฟ์ เข้าประกวดในโครงการประกวดภาพยนตร์สั้น ประเภทภาพยนตร์สยองขวัญ "หลอนศาสตร์" เมื่อวันที่ 20 พฤศจิกายน 2567  ณ ห้องประชุม ดร.เทียม โชควัฒนา คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</p>
+                
+            </a>
+            <a href="https://www.facebook.com/share/p/1Ww8KgBZm7/" class="card">
+                <img src="https://scontent.fbkk25-1.fna.fbcdn.net/v/t39.30808-6/453739136_926969089235738_1369122911464267765_n.jpg?stp=dst-jpg_p526x395_tt6&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YgMfbq8H02wQ7kNvgEZ1--1&_nc_oc=AdjLTE44PE75Uo78_vpW9UUmiTYdEFfacuu-QgU_mLIinSyAg77diHIAlDY9-aLVEFA&_nc_zt=23&_nc_ht=scontent.fbkk25-1.fna&_nc_gid=Ayrzt9USCjBEVMyk9Qbywvx&oh=00_AYDG_kp1d2qDsggW7iCyBZXobbBBqur2TYeeC8YfLfy4Wg&oe=679BF2D8" alt="ภาพกิจกรรมสัมมนาเทคโนโลยี 2025">
+                <p>สาขาวิชาเทคโนโลยีมัลติมีเดีย ศูนย์หันตรา เป็นตัวแทนมหาวิทยาลัยนำเสนอผลงานอาจารย์และนักศึกษา ในงาน อว.แฟร์ อว.แฟร์: SCI POWER FOR FUTURE THAILAND 2024</p>
+            </a>
+            <a href="https://www.facebook.com/MMT.RUS/posts/pfbid028Jue36d4Ki2wQpeCiB1SwBE56F2yGnjwzTEBb3ANsqMb7CV5AmV5NVwt2dwNgBBKl" class="card">
+                <img src="https://scontent.fbkk25-1.fna.fbcdn.net/v/t39.30808-6/394213265_7546394022044249_897412889611254270_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=f727a1&_nc_ohc=Ev3mzTwOnPwQ7kNvgFoeSXE&_nc_oc=AdhBis-FRNiEmWx98o1BKIawTmgJ8o88PvQ6JADn8jCfBqwGaPzgNxEYMYeb6rYqXrU&_nc_zt=23&_nc_ht=scontent.fbkk25-1.fna&_nc_gid=AnymZGgPAwPobGq9i_I9ePE&oh=00_AYDi98APgB1HTPhIm_oqwMhTqKOCM-wkv28bRjref7LYeg&oe=67A39799" alt="ภาพกิจกรรมวันเปิดบ้าน">
+                <p>พร้อมนำเสนอผลงานโปรเจครายวิชา Operating Skills for Multimedia Technology กลุ่มเรียน MMT46621N แอนิเมชันสองมิติ นิทานกลุ่ม เด็กเยอะมากจนต้องแบ่งถ่ายภาพรวม สองรอบเลย มีอาจารย์ต้นมาร่วมแจมด้วย ในฐานะที่ปรึกษาห้อง</p>
+            </a>
+            <a href="https://www.facebook.com/share/p/1BBHtZHUsu/" class="card">
+                <img src="https://scontent.fbkk25-1.fna.fbcdn.net/v/t39.30808-6/435884411_916541783596565_194500355998440187_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=tm4xDMFfyboQ7kNvgFsCaVr&_nc_oc=Adhy632qdV3IvN-UYQw-HDGEQHS8sZ4n-pRTqsaKR7vWb65vvo94ejvt4VzxJ3eMdz8&_nc_zt=23&_nc_ht=scontent.fbkk25-1.fna&_nc_gid=ABxZMc-FrDXsDi11mM9yCtj&oh=00_AYALhXc7fjawCa0Bi3bo8lgD1la1KEGh7vRlhifIq0vaig&oe=679BF845" alt="ภาพกิจกรรมโครงการจิตอาสา">
+                <p>ได้รับรางวัลรองชนะเลิศอันดับสอง ระดับจังหวัดจากการประกวดคลิปวีดิโอ “Unseen อยุธยา…ที่ไม่รู้จัก” เมื่อวันที่ 28 มีนาคม 2567 จากนายนิวัฒน์ รุ่งสาคร ผู้ว่าราชการจังหวัดพระนครศรีอยุธยา</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

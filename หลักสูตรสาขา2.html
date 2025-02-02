@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Sarabun Font Example</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ใช้ฟอนต์ Sarabun กับทุกองค์ประกอบในหน้า */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            background: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #222; /* เปลี่ยนเป็นสีเข้ม */
+        color: white;
+        padding: 15px 30px; /* เพิ่ม padding ให้สูงขึ้น */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        }
+        .logo {
+            font-weight: bold;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            transition: 0.3s;
+        }
+        ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: flex-end;
+        }
+        ul li {
+            margin: 0 10px;
+        }
+        ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        ul li a:hover {
+            color: #ffcc00;
+        }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            ul {
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: #333;
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px 20px;
+                border-radius: 8px;
+                display: none;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            ul.active {
+                display: flex;
+            }
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translateY(8px);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translateY(-8px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: inherit;">MULTIMEDIA TECHNOLOGY</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="หลักสูตรสาขา2.html">หลักสูตรสาขา</a></li>
+            <li><a href="อาจารย์2.html">อาจารย์</a></li>
+            <li><a href="กิจกรรม2.html">กิจกรรม</a></li>
+            <li><a href="สมัครเรียน2.html">สมัครเรียน</a></li>
+            <li><a href="ติดต่อ2.html">ติดต่อ</a></li>
+        </ul>
+    </nav>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+        
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Technology</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap');
+
+        body {
+    margin: 0;
+    font-family: 'Sarabun', Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Image Section */
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f4f4;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Content Section */
+.content {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Accordion */
+.accordion-header {
+    background-color: #f7b733;
+    color: #fff;
+    padding: 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid #ffffff; /* เพิ่มเส้นแบ่งระหว่างกล่อง */
+}
+
+.accordion-header:hover {
+    background-color: #e3a327;
+}
+
+.accordion-content {
+    background-color: #fff;
+    display: none;
+    padding: 15px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image-container img {
+        max-width: 80%;
+    }
+
+    .accordion-header {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
+
+        .accordion-header:hover {
+            background-color: #e3a327;
+        }
+
+        .accordion-content {
+            background-color: #fff;
+            display: none;
+            padding: 15px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            border-top: 1px solid #eee;
+        }
+        .accordion-content ul {
+        display: flex;
+        flex-wrap: wrap; /* ให้เนื้อหาเรียงลงเมื่อจอเล็ก */
+        gap: 10px; /* เพิ่มระยะห่าง */
+        padding: 0;
+        margin: 0;
+        }
+
+        .accordion-content p {
+            margin: 10px 0;
+        }
+
+        .accordion-header::after {
+            content: '+';
+            font-size: 1.2rem;
+        }
+
+        .accordion-header.active::after {
+            content: '−';
+        }
+
+        .cta {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .cta a {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .cta a:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+    margin-top: 120px; /* ปรับค่าตามต้องการ */
+        }
+        
+        .column {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            flex: 1;
+        }
+        @media (max-width: 768px) {
+    .accordion-content li {
+        flex: 1 1 100%; /* ทำให้เต็มความกว้าง */
+        text-align: left; /* จัดข้อความชิดซ้าย */
+    }
+    /* ✅ ปรับแต่งรายการ <ul> */
+ul {
+    list-style-type: disc; /* ใช้จุดแบบมาตรฐาน */
+    padding-left: 20px;
+}
+
+/* ✅ ปรับแต่ง <li> ให้เว้นวรรคเหมาะสม */
+li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px; /* ปรับระยะห่างระหว่างจุดกับข้อความ */
+    line-height: 1.8; /* เพิ่มความสูงบรรทัดให้ข้อความอ่านง่าย */
+    padding: 5px 0; /* เพิ่มระยะห่างระหว่างแต่ละ <li> */
+    flex-wrap: wrap;
+}
+
+/* ✅ ปรับแต่งให้เหมาะสมในมือถือ */
+@media (max-width: 768px) {
+    li {
+        flex-direction: column; /* ให้ข้อความลงบรรทัดใหม่ถ้าจำเป็น */
+        align-items: flex-start;
+        gap: 5px; /* ลดระยะห่างลงเล็กน้อย */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Image Section -->
+        <div class="image-container">
+            <img src="https://img2.imgbiz.com/imgbiz/25d26b15c6529e70c.png">
+        </div>        
+
+        <!-- Content Section -->
+        <div class="content">
+            <h1>หลักสูตรเทคโนโลยีมัลติมีเดีย</h1>
+            <p><strong>ชื่อหลักสูตร ภาษาไทย:</strong> หลักสูตรเทคโนโลยีบัณฑิต สาขาวิชาเทคโนโลยีมัลติมีเดีย</p>
+            <p><strong>ภาษาอังกฤษ:</strong> Bachelor of Technology Program in Multimedia Technology</p>
+            
+            <h2>รายละเอียดปริญญา</h2>
+            
+                <li><strong>ชื่อเต็ม (ไทย):</strong> เทคโนโลยีบัณฑิต (เทคโนโลยีมัลติมีเดีย)</li>
+                <li><strong>ชื่อย่อ (ไทย):</strong> ทล.บ. (เทคโนโลยีมัลติมีเดีย)</li>
+                <li><strong>ชื่อเต็ม (อังกฤษ):</strong> Bachelor of Technology (Multimedia Technology)</li>
+                <li><strong>ชื่อย่อ (อังกฤษ):</strong> B.Tech. (Multimedia Technology)</li>
+            
+            <div class="cta">
+                <a href="https://www.facebook.com/share/15WvCfbSWK" target="_blank">ดูข้อมูลเพิ่มเติมบน Facebook</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Technology</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap');
+
+        body {
+    margin: 0;
+    font-family: 'Sarabun', Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Image Section */
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f4f4;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Content Section */
+.content {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Accordion */
+.accordion-header {
+    background-color: #f7b733;
+    color: #fff;
+    padding: 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid #ffffff; /* เพิ่มเส้นแบ่งระหว่างกล่อง */
+}
+
+.accordion-header:hover {
+    background-color: #e3a327;
+}
+
+.accordion-content {
+    background-color: #fff;
+    display: none;
+    padding: 15px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image-container img {
+        max-width: 80%;
+    }
+
+    .accordion-header {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
+
+        .accordion-header:hover {
+            background-color: #e3a327;
+        }
+
+        .accordion-content {
+            background-color: #fff;
+            display: none;
+            padding: 15px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            border-top: 1px solid #eee;
+        }
+        .accordion-content ul {
+        display: flex;
+        flex-wrap: wrap; /* ให้เนื้อหาเรียงลงเมื่อจอเล็ก */
+        gap: 10px; /* เพิ่มระยะห่าง */
+        padding: 0;
+        margin: 0;
+        }
+
+        .accordion-content p {
+            margin: 10px 0;
+        }
+
+        .accordion-header::after {
+            content: '+';
+            font-size: 1.2rem;
+        }
+
+        .accordion-header.active::after {
+            content: '−';
+        }
+
+        .cta {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .cta a {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .cta a:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+    margin-top: 120px; /* ปรับค่าตามต้องการ */
+        }
+        
+        .column {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            flex: 1;
+        }
+        @media (max-width: 768px) {
+    .accordion-content li {
+        flex: 1 1 100%; /* ทำให้เต็มความกว้าง */
+        text-align: left; /* จัดข้อความชิดซ้าย */
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Image Section -->
+        <div class="image-container">
+            <img src="https://img2.imgbiz.com/imgbiz/1ccecea16b0494730.png" alt="Student Image">
+        </div>
+
+        <!-- Content Section -->
+        <div class="content">
+            <h1>รายละเอียดหลักสูตร</h1>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">ชื่อปริญญาและสาขาวิชา</div>
+                    <div class="accordion-content">
+                        <p>ชื่อเต็ม (ไทย): เทคโนโลยีบัณฑิต (เทคโนโลยีมัลติมีเดีย)</p>
+                        <p>ชื่อย่อ (ไทย): ทล.บ. (เทคโนโลยีมัลติมีเดีย)</p>
+                        <p>ชื่อเต็ม (อังกฤษ): Bachelor of Technology (Multimedia Technology)</p>
+                        <p>ชื่อย่อ (อังกฤษ): B.Tech. (Multimedia Technology)</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">จำนวนหน่วยกิตรวมตลอดหลักสูตร</div>
+                    <div class="accordion-content">
+                        <p>จำนวนหน่วยกิตรวมตลอดหลักสูตร 132 หน่วยกิต</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">โครงสร้างหลักสูตร</div>
+                    <div class="accordion-content">
+                        <p>โครงสร้างหลักสูตร แบ่งเป็นหมวดวิชาที่สอดคล้องกับที่กำหนดไว้ในเกณฑ์มาตรฐานหลักสูตร กระทรวงศึกษาธิการ ดังนี้</p>
+                            <h4>ก. หมวดวิชาศึกษาทั่วไป 30 หน่วยกิต</h4>
+                            <li>1. กลุ่มวิชาสังคมศาสตร์และมนุษยศาสตร์ 6 หน่วยกิต</li>
+                                    <li>2. กลุ่มวิชาภาษา 13 หน่วยกิต</li>
+                                    <li>3. กลุ่มวิชาวิทยาศาสตร์และคณิตศาสตร์ 11 หน่วยกิต</li>
+                                </ul>
+                            <h4>ข. หมวดวิชาเฉพาะ 96 หน่วยกิต</h4>
+                                        <li>1. กลุ่มวิชาพื้นฐาน 30 หน่วยกิต</li>
+                                        <li>2. กลุ่มวิชาแกนและด้าน 59 หน่วยกิต</li>
+                                        <li>3. กลุ่มวิชาเลือกเสรีประสบการณ์วิชาชีพ 7 หน่วยกิต</li>
+                                    </ul>
+                            <h4>ค. หมวดวิชาเลือกเสรี 6 หน่วยกิต</h4>
+                        </div>
+                            </li>
+                            
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">วิชาหลัก (Hi-light)</div>
+                    <div class="accordion-content">
+                        <h4>วิชาหลัก (Hi-light)</h4>
+                        <li>1. คอมพิวเตอร์กราฟิก</li>
+                        <li>2. เทคโนโลยีการถ่ายภาพดิจิทัล</li>
+                        <li>3. เทคโนโลยีการผลิตภาพเคลื่อนไหว</li>
+                        <li>4. การพัฒนาสื่อโดยใช้เทคโนโลยีเสมือนจริง</li>  
+                    </div>
+
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">คุณสมบัติของผู้เข้าศึกษา</div>
+                    <div class="accordion-content">
+                        <li>1. สำเร็จการศึกษาระดับมัธยมศึกษาตอนปลาย (ม.6) ทุกกลุ่มสาระการเรียนรู้ หรือเทียบเท่า ระดับประกาศนียบัตรวิชาชีพ (ปวช.) ทุกประเภทวิชาหรือเทียบเท่า และมีคุณสมบัติอื่นๆ ตามข้อบังคับมหาวิทยาลัยเทคโนโลยีราชมงคลสุวรรณภูมิ ว่าด้วยการศึกษาระดับปริญญาตรี พ.ศ. 2561 และข้อบังคับมหาวิทยาลัยเทคโนโลยีราชมงคลสุวรรณภูมิ ว่าด้วยการศึกษาระดับปริญญาตรี (ฉบับที่ 2) พ.ศ.2562 และที่แก้ไขเพิ่มเติม (ภาคผนวก ก) หรือ
+                        <li>2. สำเร็จการศึกษาระดับอนุปริญญาทุกสาขาวิชาหรือเทียบเท่า หรือประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) ทุกประเภทวิชาหรือเทียบเท่า หรือระดับปริญญาตรีทุกสาขาวิชา โดยใช้การเทียบโอนผลการศึกษา ตามข้อบังคับมหาวิทยาลัยเทคโนโลยีราชมงคลสุวรรณภูมิ ว่าด้วยการศึกษา ระดับปริญญาตรี พ.ศ. 2561 และข้อบังคับมหาวิทยาลัยเทคโนโลยีราชมงคลสุวรรณภูมิ ว่าด้วยการศึกษา ระดับปริญญาตรี (ฉบับที่ 2) พ.ศ. 2562 และที่แก้ไขเพิ่มเติม (ภาคผนวก ก)
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">อาชีพที่ประกอบการได้หลังสำเร็จการศึกษา</div>
+                    <div class="accordion-content">
+                        <li>1. นักพัฒนาสื่อมัลติมีเดีย</li>
+                        <li>2. นักออกแบบคอมพิวเตอร์กราฟิก</li>
+                        <li>3. นักสร้างภาพเคลื่อนไหว</li>
+                        <li>4. นักพัฒนาสื่อปฏิสัมพันธ์และเว็บไซต์</li>
+                        <li>5. นักพัฒนาเกมและสื่อเสมือนจริง</li>
+                        <li>6. ผู้ประกอบการด้านมัลติมีเดีย</li>
+                    </div>
+                </div>
+                
+
+                <div class="accordion-item">
+                    <div class="accordion-header">เปิดสอนในระดับปริญญาตรี</div>
+                    <div class="accordion-content">
+                        <li>ศูนย์พระนครศรีอยุธยา หันตรา เปิดสอนในระดับปริญญาตรี</li>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Accordion Functionality
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                header.classList.toggle('active');
+                const content = header.nextElementSibling;
+                if (header.classList.contains('active')) {
+                    content.style.display = 'block';
+                } else {
+                    content.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

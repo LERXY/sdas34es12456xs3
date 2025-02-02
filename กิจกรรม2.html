@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Sarabun Font Example</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ใช้ฟอนต์ Sarabun กับทุกองค์ประกอบในหน้า */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+            padding-top: 80px; /* ป้องกันเมนูบังเนื้อหา */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            background: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #222; /* เปลี่ยนเป็นสีเข้ม */
+        color: white;
+        padding: 15px 30px; /* เพิ่ม padding ให้สูงขึ้น */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        }
+        .logo {
+            font-weight: bold;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            transition: 0.3s;
+        }
+        ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: flex-end;
+        }
+        ul li {
+            margin: 0 10px;
+        }
+        ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        ul li a:hover {
+            color: #ffcc00;
+        }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            ul {
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: #333;
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px 20px;
+                border-radius: 8px;
+                display: none;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            ul.active {
+                display: flex;
+            }
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translateY(8px);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translateY(-8px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: inherit;">MULTIMEDIA TECHNOLOGY</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="หลักสูตรสาขา2.html">หลักสูตรสาขา</a></li>
+            <li><a href="อาจารย์2.html">อาจารย์</a></li>
+            <li><a href="กิจกรรม.html">กิจกรรม</a></li>
+            <li><a href="สมัครเรียน2.html">สมัครเรียน</a></li>
+            <li><a href="ติดต่อ2.html">ติดต่อ</a></li>
+        </ul>
+    </nav>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+        
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กิจกรรม</title>
+    <style>
+        /* รีเซ็ตสไตล์พื้นฐาน */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* กำหนดพื้นหลังและฟอนต์ */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding-top: 80px; /* ช่องว่างเพื่อไม่ให้แถบเมนูซ้อนกับเนื้อหา */
+            color: #333;
+        }
+
+        /* ส่วนหัวข้อกิจกรรม */
+        .header {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 40px;
+        }
+
+        /* คอนเทนเนอร์ของกิจกรรม */
+        .activity-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* แสดง 3 คอลัมน์ */
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* กำหนดให้คอลัมน์แสดงเป็น 1 คอลัมน์บนมือถือ */
+        @media (max-width: 768px) {
+            .activity-container {
+                grid-template-columns: 1fr; /* แสดงเป็น 1 คอลัมน์ */
+            }
+        }
+
+        /* สไตล์การ์ดกิจกรรม */
+        .activity-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        /* เมื่อเอาเมาส์ไปวางบนการ์ด */
+        .activity-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* สไตล์ของรูปภาพกิจกรรม */
+        .activity-image img {
+            width: 100%;
+            height: 300px; /* ปรับความสูงเป็น 300px */
+            object-fit: cover;
+        }
+
+        /* รายละเอียดของกิจกรรม */
+        .activity-details {
+            padding: 20px;
+        }
+
+        /* ชื่อกิจกรรม */
+        .activity-title {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* วันที่กิจกรรม */
+        .activity-date {
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        /* คำอธิบายกิจกรรม */
+        .activity-description {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* ลิงก์อ่านเพิ่มเติม */
+        .activity-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .activity-link:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        กิจกรรมล่าสุด
+    </div>
+
+    <div class="activity-container">
+        <div class="activity-card">
+            <div class="activity-image">
+                <img src="https://scontent.fbkk25-1.fna.fbcdn.net/v/t39.30808-6/467615772_1064430005474408_8633932983511951707_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=yPBGzQF_PQgQ7kNvgGruUI5&_nc_oc=AdgiQfzWzGcE2281wsjUi5ULHaiwIcbrrsqCE66Tv_V6PteS2db43pOzYL62zVtYc10&_nc_zt=23&_nc_ht=scontent.fbkk25-1.fna&_nc_gid=AqmXYCMG8cPzsfmZ9jYiQe5&oh=00_AYBJYzEyhwbGSWUOtNtUsgYbYQdd5SV4fBAfE_yXw4MU5A&oe=679BFB87" alt="กิจกรรม" />
+            </div>
+            <div class="activity-details">
+                <p class="activity-description">คณะจารย์และนักศึกษาหลักสูตรเทคโนโลยีมัลติมีเดีย ได้ต้อนรับและนำเสนอผลงาน Digital Heritage : มรดกทางวัฒนธรรม สู่นวัตกรรมดิจิทัล กับผู้บริหารและคณะกรรมการสถาบันมรดกสยามเพื่อการเรียนรู้ตลอดชีวิต นำโดยท่านชายวัชเรศร วิวัชรวงศ์ (ท่านอ้น) ประธานที่ปรึกษากิตติมศักดิ์สถาบันฯ ขอของคุณ มหาวิทยาลัยเทคโนโลยีราชมงคลสุวรรณภูมิ ที่เปิดโอกาสในการนำเสนอผลงานของคณาจารย์และนักศึกษาในสาขาวิชาจนได้รับคำชื่นชมจากหน่วยงานภายนอก</p>
+                <a href="https://www.facebook.com/share/p/18udwXGC83/" class="activity-link">อ่านเพิ่มเติม</a>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-image">
+                <img src="https://scontent.fbkk25-1.fna.fbcdn.net/v/t39.30808-6/467781512_1062923458958396_3389618824824092175_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=JQqbJxTyEyUQ7kNvgHFK2iS&_nc_oc=AdhlV_n04XGOVYg4kiUTrmup-J-A34VlekriBSEa8qk00xnQ-eLvbLFdDb4upMwcwhc&_nc_zt=23&_nc_ht=scontent.fbkk25-1.fna&_nc_gid=AXdgXsZtlIO435zscu5utU0&oh=00_AYABmBfmSxfcievEN2nojIymW9F4F8jWSETPS27k-ohZXg&oe=679BEA98" alt="กิจกรรม" />
+            </div>
+            <div class="activity-details">
+                <p class="activity-description">ได้รับรางวัล รองชนะเลิศอันดับหนึ่ง  ในการส่งผลงานภาพยนตร์สั้น ปมหลอน ซ่อนวิญญาณ ตอน แฟลชไดรฟ์ เข้าประกวดในโครงการประกวดภาพยนตร์สั้น ประเภทภาพยนตร์สยองขวัญ "หลอนศาสตร์" เมื่อวันที่ 20 พฤศจิกายน 2567  ณ ห้องประชุม ดร.เทียม โชควัฒนา คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</p>
+                <a href="https://www.facebook.com/share/p/15q2tt3c5b/" class="activity-link">อ่านเพิ่มเติม</a>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-image">
+                <img src="https://scontent.fbkk25-1.fna.fbcdn.net/v/t39.30808-6/458327733_1007684444482298_542035498334557262_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=-FFrB0Pw14oQ7kNvgFF6Pjr&_nc_oc=Adjn2CVMlyzGGVB0ltmcibVis20OMNMzlB2HVaXHDtaOc1WEY4-Owd2l98T3Ubidcf4&_nc_zt=23&_nc_ht=scontent.fbkk25-1.fna&_nc_gid=AuUOD-uVYtn3uo83rrlWzcZ&oh=00_AYAosFC2_uhtg1S9eI8VobXGQXNgGVWMuYjVt4p6Tv2HDw&oe=679BF2C1" alt="กิจกรรม" />
+            </div>
+            <div class="activity-details">
+                <p class="activity-description">คณะจารย์ และนักศึกษาสาขาวิชาเทคโนโลยีมัลติมีเดีย มทร.สุวรรณภูมิ ได้ส่งผลงานและร่วมพิธีเปิด ในการแสดงผลงานศิลปะและการออกแบบแห่งประเทศไทย ครั้งที่ 5 5th Thailand Art and Design Exhibition  ณ หอศิลปวัฒนธรรมแห่งกรุงเทพมหานคร โดย ชมรมคนสร้างสื่อ Media Art เป็นตัวแทนมหาวิทยาลับเทคโนโลยีราชมงคลสุวรรณภูมิ ส่งผลงานภาพยนตร์สั้น เรื่อง เจ้าแม่สร้อยดอกหมาก เข้าฉายในกิจกรรมภาพยนตร์สั้น จากมหาวิทยาลัยเทคโนโลยีราชมงคลทั้ง 9 แห่ง ดำเนินการจัดโครงการโดย คณะสถาปัตยกรรมศาสตร์และการออกแบบ มหาวิทยาลัยเทคโนโลยีราชมงคลรัตนโกสินทร์</p>
+                <a href="https://www.facebook.com/share/p/12CjyzvzHww/" class="activity-link">อ่านเพิ่มเติม</a>
+            </div>
+        </div>
+        
+        <div class="activity-card">
+            <div class="activity-image">
+                <img src="https://scontent.fbkk25-1.fna.fbcdn.net/v/t39.30808-6/453739136_926969089235738_1369122911464267765_n.jpg?stp=dst-jpg_p526x395_tt6&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YgMfbq8H02wQ7kNvgEZ1--1&_nc_oc=AdjLTE44PE75Uo78_vpW9UUmiTYdEFfacuu-QgU_mLIinSyAg77diHIAlDY9-aLVEFA&_nc_zt=23&_nc_ht=scontent.fbkk25-1.fna&_nc_gid=Ayrzt9USCjBEVMyk9Qbywvx&oh=00_AYDG_kp1d2qDsggW7iCyBZXobbBBqur2TYeeC8YfLfy4Wg&oe=679BF2D8" alt="กิจกรรม" />
+            </div>
+            <div class="activity-details">
+                <p class="activity-description">สาขาวิชาเทคโนโลยีมัลติมีเดีย ศูนย์หันตรา เป็นตัวแทนมหาวิทยาลัยนำเสนอผลงานอาจารย์และนักศึกษา ในงาน อว.แฟร์ อว.แฟร์: SCI POWER FOR FUTURE THAILAND 2024</p>
+                <a href="https://www.facebook.com/share/p/1Ww8KgBZm7/" class="activity-link">อ่านเพิ่มเติม</a>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-image">
+                <img src="https://scontent.fbkk25-1.fna.fbcdn.net/v/t39.30808-6/453654392_985389926711750_4666076911946870980_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=104&ccb=1-7&_nc_sid=f727a1&_nc_ohc=iIc6Dr7vfaYQ7kNvgGHd8yA&_nc_oc=AdiuJj7Eh4bamOfHO8XP4DKJ8C0LkOAaR3fynsgXNM0siOcoY0sMHikmrfwB5pA7oNE&_nc_zt=23&_nc_ht=scontent.fbkk25-1.fna&_nc_gid=A5GIVQI3KPV-5qAPx9gYK6Z&oh=00_AYBDGbYWWqQhx1KmMREse_BcjFOkhnx9bsfWb4r-4W6ScQ&oe=679C0BDB" alt="กิจกรรม" />
+            </div>
+            <div class="activity-details">
+                <p class="activity-description">วันที่ 31 กรกฎาคม 2567 หลักสูตรเทคโนโลยีมัลติมีเดีย พานักศึกษา ศึกษาดูงาน ณ พิพิธภัณฑ์พระรามเก้า องค์การพิพิธภัณฑ์วิทยาศาสตร์แห่งชาติ และ ศูนย์วิทยาศาสตร์เพื่อการศึกษารังสิต</p>
+                <a href="https://www.facebook.com/share/p/1DTTzmqSSA/" class="activity-link">อ่านเพิ่มเติม</a>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-image">
+                <img src="https://scontent.fbkk25-1.fna.fbcdn.net/v/t39.30808-6/435884411_916541783596565_194500355998440187_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=tm4xDMFfyboQ7kNvgFsCaVr&_nc_oc=Adhy632qdV3IvN-UYQw-HDGEQHS8sZ4n-pRTqsaKR7vWb65vvo94ejvt4VzxJ3eMdz8&_nc_zt=23&_nc_ht=scontent.fbkk25-1.fna&_nc_gid=ABxZMc-FrDXsDi11mM9yCtj&oh=00_AYALhXc7fjawCa0Bi3bo8lgD1la1KEGh7vRlhifIq0vaig&oe=679BF845" alt="กิจกรรม" />
+            </div>
+            <div class="activity-details">
+                <p class="activity-description">ได้รับรางวัลรองชนะเลิศอันดับสอง ระดับจังหวัดจากการประกวดคลิปวีดิโอ “Unseen อยุธยา…ที่ไม่รู้จัก” เมื่อวันที่ 28 มีนาคม 2567 จากนายนิวัฒน์ รุ่งสาคร ผู้ว่าราชการจังหวัดพระนครศรีอยุธยา</p>
+                <a href="https://www.facebook.com/share/p/1BBHtZHUsu/" class="activity-link">อ่านเพิ่มเติม</a>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-image">
+                <img src="https://scontent.fbkk25-1.fna.fbcdn.net/v/t39.30808-6/391674557_24028929410055643_1743630348500043771_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=tcEeKf79E4UQ7kNvgF15PuJ&_nc_oc=Adiqp0AgdANdH3kpxaKNJixhXCbnZvR2JPtNvvaGXgNdLoIyJ4LV6OX7mxaTTRaet3Q&_nc_zt=23&_nc_ht=scontent.fbkk25-1.fna&_nc_gid=APdjON8_eWw3dByiAt_eidd&oh=00_AYDde_ksnh4Ia8JpXOMD59NyV8U-tqTkOVefTcw5r0i3dQ&oe=67A3A003" alt="กิจกรรม" />
+            </div>
+            <div class="activity-details">
+                <p class="activity-description">ขอเชิญชวนทุกท่านมาร่วมชมและให้กำลังใจนักศึกษาในนิทรรศการภาพถ่ายเชิงวัฒนธรรมและวิถีชีวิต ประจำปี ของนักศึกษากลุ่ม MMT46621N และ MMT46541N แม้ในปีนี้จะพบอุปสรรคเรื่องจำนวนนักศึกษา อุปกรณ์ และปัญหาเศรษฐกิจ แต่ด้วยความมุ่งมั่นของคณาจารย์และนักศึกษา  
+                    เราจึงปรับเปลี่ยนการเรียนการสอนบางส่วนโดยใช้กล้องมือถือแทน มาร่วมชื่นชมผลงานกว่า 80 ชิ้น และเป็นกำลังใจให้พวกเขากันนะครับ</p>
+                <a href="https://www.facebook.com/MMT.RUS/posts/pfbid0zwtyGfcGPzwuuLSPpEV1j2mnYETCciViM9yvGqhcDdXT8uUVkLA6cJwTMk9LXT27l" class="activity-link">อ่านเพิ่มเติม</a>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-image">
+                <img src="https://scontent.fbkk25-1.fna.fbcdn.net/v/t39.30808-6/394213265_7546394022044249_897412889611254270_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=f727a1&_nc_ohc=Ev3mzTwOnPwQ7kNvgFoeSXE&_nc_oc=AdhBis-FRNiEmWx98o1BKIawTmgJ8o88PvQ6JADn8jCfBqwGaPzgNxEYMYeb6rYqXrU&_nc_zt=23&_nc_ht=scontent.fbkk25-1.fna&_nc_gid=AnymZGgPAwPobGq9i_I9ePE&oh=00_AYDi98APgB1HTPhIm_oqwMhTqKOCM-wkv28bRjref7LYeg&oe=67A39799" alt="กิจกรรม" />
+            </div>
+            <div class="activity-details">
+                <p class="activity-description">พร้อมนำเสนอผลงานโปรเจครายวิชา Operating Skills for Multimedia Technology กลุ่มเรียน MMT46621N แอนิเมชันสองมิติ นิทานกลุ่ม เด็กเยอะมากจนต้องแบ่งถ่ายภาพรวม สองรอบเลย มีอาจารย์ต้นมาร่วมแจมด้วย ในฐานะที่ปรึกษาห้อง</p>
+                <a href="https://www.facebook.com/MMT.RUS/posts/pfbid028Jue36d4Ki2wQpeCiB1SwBE56F2yGnjwzTEBb3ANsqMb7CV5AmV5NVwt2dwNgBBKl" class="activity-link">อ่านเพิ่มเติม</a>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-image">
+                <img src="https://scontent.fbkk25-1.fna.fbcdn.net/v/t39.30808-6/429889467_899336048650472_1399312900638385929_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=bJgHUvJW1iMQ7kNvgGzVebj&_nc_oc=AdhAosH9rWOh_9We61Q8B5mpwj1HKfXL01yUriLbi_WrXp2ZDhfV753Qx0wS5Lb80u4&_nc_zt=23&_nc_ht=scontent.fbkk25-1.fna&_nc_gid=A_OWx3KvepihqtoB3sQqhol&oh=00_AYAJvigi3r5MdQJYajeKjaK5jM53zps6MiwfXzlQ6liuKQ&oe=67A3A91F" alt="กิจกรรม" />
+            </div>
+            <div class="activity-details">
+                <p class="activity-description">เมื่อวันที่ 8 มีนาคม พ.ศ.2567 หลักสูตรเทคโนโลยี่มัลติมีเดีย ศูนย์หันตรา ได้จัดโครงการอบรมเชิงปฏิบัติการเพื่อเพิ่มสมรรถนะวิชาชีพ ในหัวข้อ Live Stream โดยได้ทีมวิทยากร เจ้าของผลิตภัณฑ์ Tricaster เป็นวิทยากรในการอบรมเชิงปฏิบัติการในครั้งนี้</p>
+                <a href="https://www.facebook.com/MMT.RUS/posts/pfbid028Qb1wdsLbceADxPDSabuny9RA3bcW4UnXPBAZcoCCmjDSFU9kTvHUk3TocSSWDPdl" class="activity-link">อ่านเพิ่มเติม</a>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-image">
+                <img src="https://scontent.fbkk25-1.fna.fbcdn.net/v/t39.30808-6/451863292_8712561888760784_5735969509666001331_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=f727a1&_nc_ohc=yT6uIRlOqt8Q7kNvgHCeu5G&_nc_oc=AdiYXqpPhkaQqGGrFhUjMJ_dyEC8T7TNBinHCHqjc_Uhjj9xMQw5hxeNEYfLQPV0Km0&_nc_zt=23&_nc_ht=scontent.fbkk25-1.fna&_nc_gid=ATRKC-QizUAGZXgxAN_YaLj&oh=00_AYCr_pqIPmgnq9TwfY2X_Als8gaY9A4VYF3Xh3IpruSi4A&oe=67A3A56D" alt="กิจกรรม" />
+            </div>
+            <div class="activity-details">
+                <p class="activity-description">ตอบโจทย์การเป็นบัณฑิตนักปฏิบัติ เพราะเราเน้นเรียนปฏิบัติ ฝึกเล่าเรื่อง และหัดพากย์</p>
+                <a href="https://www.facebook.com/MMT.RUS/posts/pfbid02CsdgX8TerKadDoHxYPf6vU3wL1QaSdyJKCNb6Thki5EPTkDSKho9Y5tsXCZz2pKQl" class="activity-link">อ่านเพิ่มเติม</a>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-image">
+                <img src="https://scontent.fbkk25-1.fna.fbcdn.net/v/t39.30808-6/361919902_771317768118968_5885419269633810228_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=f727a1&_nc_ohc=2ydDA0cVPncQ7kNvgFudI2_&_nc_oc=AdhQmM0ySaLI9aiSMoxqDDAt6CEjn10sDOmL7ufPjlrwrbI1w64_s8ATFQ9xq8l_8lw&_nc_zt=23&_nc_ht=scontent.fbkk25-1.fna&_nc_gid=AcnSQW3tKeUgy9E6Y6rfOoS&oh=00_AYCJ-CMuQ3yMxaNOfZyNYum3qaZzcR3Z4GYnhncsDF1vow&oe=67A3BF40" alt="กิจกรรม" />
+            </div>
+            <div class="activity-details">
+                <p class="activity-description">นอกจากจะต้องได้อาจารย์ที่มีความตั้งใจ และฝีมือดีแล้ว อุปกรณ์ที่จำเป็นต้องใช้ถ่ายทอดก็มีความสำคัญ ห้อง ART ปีนี้ของเล่นเยอะมาก เด็กๆ แน่นห้อง เพราะต้องจุเด็ก 40+ คน ในห้องพื้นที่ 30 คน เราจะเข้าถึงเด็กยากขึ้น ข้างหลังไม่ต้องกลัวไม่เห็นนะ เรามีวิชวลที่ได้ใช้งานแล้ว 
+                    MMT46641N, MMT46642N</p>
+                <a href="https://www.facebook.com/share/p/1BCJybWsKr/" class="activity-link">อ่านเพิ่มเติม</a>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-image">
+                <img src="https://scontent.fbkk25-1.fna.fbcdn.net/v/t39.30808-6/459222114_9057586860924950_1404648603308530617_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=f727a1&_nc_ohc=njAOab7G4YUQ7kNvgFraQR9&_nc_oc=AdgIQTPGIOetIhmohYuQ3m5rU_YL789mvbGsHfs_TxCc00BM6mrV3LNXQSqSL5KTzSA&_nc_zt=23&_nc_ht=scontent.fbkk25-1.fna&_nc_gid=A5IYz4yX7bEdn_Nu3tcFhyU&oh=00_AYDB3H_AlU37UI6B7MuTTLV_TcbWwk88S86T87r5DzPmmg&oe=67A3BE83" alt="กิจกรรม" />
+            </div>
+            <div class="activity-details">
+                <p class="activity-description">เปิดโลกชมรม...2567 ในฐานะอาจารย์ที่ปรึกษาชมรมคนสร้างสื่อ Media Art</p>
+                <a href="https://www.facebook.com/share/p/15Zssmf2NS/" class="activity-link">อ่านเพิ่มเติม</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

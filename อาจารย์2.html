@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ปรับตำเเหน่ง</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* จัดกลาง H1 */
+        h1 {
+            text-align: center; /* จัดข้อความตรงกลาง */
+            margin-bottom: 30px; /* เพิ่มระยะห่างจากข้างล่าง */
+            font-size: 2rem; /* เพิ่มขนาดตัวอักษรของหัวข้อ */
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            height: 520px;/* กำหนดความสูงเท่ากัน */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่างของการ์ด */
+        }
+
+        .card img {
+             width: 100%;
+             height: 330px; /* ความสูงคงที่ */
+             max-height: 330px; /* จำกัดความสูง */
+             object-fit: contain;
+             border-radius: 10px;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #383838;
+        }
+
+        .custom-button {
+            font-size: 0.9rem;
+            padding: 10px 20px;
+            background-color: #ffc107;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .custom-button:hover {
+            background-color: #e0a800;
+        }
+        .card h5 {
+            font-size: 0.9rem;
+            color: #000000;
+        }
+    </style>
+</head>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Sarabun Font Example</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ใช้ฟอนต์ Sarabun กับทุกองค์ประกอบในหน้า */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            background: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #222; /* เปลี่ยนเป็นสีเข้ม */
+        color: white;
+        padding: 15px 30px; /* เพิ่ม padding ให้สูงขึ้น */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        }
+        .logo {
+            font-weight: bold;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            transition: 0.3s;
+        }
+        ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: flex-end;
+        }
+        ul li {
+            margin: 0 10px;
+        }
+        ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        ul li a:hover {
+            color: #ffcc00;
+        }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            ul {
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: #333;
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px 20px;
+                border-radius: 8px;
+                display: none;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            ul.active {
+                display: flex;
+            }
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translateY(8px);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translateY(-8px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: inherit;">MULTIMEDIA TECHNOLOGY</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="หลักสูตรสาขา2.html">หลักสูตรสาขา</a></li>
+            <li><a href="อาจารย์2.html">อาจารย์</a></li>
+            <li><a href="กิจกรรม2.html">กิจกรรม</a></li>
+            <li><a href="สมัครเรียน2.html">สมัครเรียน</a></li>
+            <li><a href="ติดต่อ2.html">ติดต่อ</a></li>
+        </ul>
+    </nav>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+        
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+    <div class="container mt-5">
+        <h1>อาจารย์ประจำหลักสูตร</h1>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <!-- Card 1 -->
+            <div class="col">
+                <div class="card custom-card">
+                  <img src="https://img5.pic.in.th/file/secure-sv1/sorachai1.jpg" alt="sorachai1" border="0">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">ผศ.ดร.สรชัย ชวรางกูร</h5>
+                        <p>ตำเเหน่ง อาจารย์ประจำ</p>
+                        <a href="https://sci.rmutsb.ac.th/2024/12/23/%e0%b8%9c%e0%b8%a8-%e0%b8%94%e0%b8%a3-%e0%b8%aa%e0%b8%a3%e0%b8%8a%e0%b8%b1%e0%b8%a2-%e0%b8%8a%e0%b8%a7%e0%b8%a3%e0%b8%b2%e0%b8%87%e0%b8%81%e0%b8%b9%e0%b8%a3/" class="btn custom-button">ความเชี่ยวชาญ</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col">
+                <div class="card custom-card">
+                  <img src="https://img5.pic.in.th/file/secure-sv1/napong.jpg" alt="napong" border="0">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">ผศ.ดร.ณพงศ์ วรรณพิรุณ</h5>
+                        <p>ตำเเหน่ง อาจารย์ประจำ</p>
+                        <a href="https://sci.rmutsb.ac.th/2024/12/23/%e0%b8%9c%e0%b8%a8-%e0%b8%94%e0%b8%a3-%e0%b8%93%e0%b8%9e%e0%b8%87%e0%b8%a8%e0%b9%8c-%e0%b8%a7%e0%b8%a3%e0%b8%a3%e0%b8%93%e0%b8%9e%e0%b8%b4%e0%b8%a3%e0%b8%b8%e0%b8%93/" class="btn custom-button">ความเชี่ยวชาญ</a>
+                    </div>
+                </div>
+            </div>
+             <!-- Card 3 -->
+           <div class="col">
+            <div class="card custom-card">
+                <img src="https://img5.pic.in.th/file/secure-sv1/athit.jpg" alt="athit" border="0">
+                <div class="card-body text-center">
+                    <h5 class="card-title">ผศ.อธิษฐ์ คู่เจริญถาวร</h5>
+                    <p>ตำเเหน่ง อาจารย์ประจำ</p>
+                    <a href="https://sci.rmutsb.ac.th/2024/12/23/%e0%b8%9c%e0%b8%a8-%e0%b8%ad%e0%b8%98%e0%b8%b4%e0%b8%a9%e0%b8%90%e0%b9%8c-%e0%b8%84%e0%b8%b9%e0%b9%88%e0%b9%80%e0%b8%88%e0%b8%a3%e0%b8%b4%e0%b8%8d%e0%b8%96%e0%b8%b2%e0%b8%a7%e0%b8%a3/" class="btn custom-button">ความเชี่ยวชาญ</a>
+                </div>
+            </div>
+           </div>
+            <!-- Card 4 -->
+            <div class="col">
+                <div class="card custom-card">
+                  <img src="https://img2.pic.in.th/pic/golf.jpg" alt="golf" border="0">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">ผช.ชัชฎา ชวรางกูร</h5>
+                        <p>ตำเเหน่ง อาจารย์ประจำ</p>
+                        <a href="https://sci.rmutsb.ac.th/2024/12/23/%e0%b8%9c%e0%b8%8a-%e0%b8%8a%e0%b8%b1%e0%b8%8a%e0%b8%8e%e0%b8%b2-%e0%b8%8a%e0%b8%a7%e0%b8%a3%e0%b8%b2%e0%b8%87%e0%b8%81%e0%b8%b9%e0%b8%a3/" class="btn custom-button">ความเชี่ยวชาญ</a>
+                    </div>
+                </div>
+            </div>
+                <!-- Card 5 -->
+            <div class="col">
+                <div class="card custom-card">
+                  <img src="https://img5.pic.in.th/file/secure-sv1/pongthachat.jpg" alt="pongthachat" border="0">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">อาจารย์ พงฐฉัตร เนียมทรง</h5>
+                        <p>ตำเเหน่ง อาจารย์</p>
+                        <a href="https://sci.rmutsb.ac.th/2024/12/23/%E0%B8%AD%E0%B8%B2%E0%B8%88%E0%B8%B2%E0%B8%A3%E0%B8%A2%E0%B9%8C%E0%B8%9E%E0%B8%87%E0%B8%90%E0%B8%89%E0%B8%B1%E0%B8%95%E0%B8%A3-%E0%B9%80%E0%B8%99%E0%B8%B5%E0%B8%A2%E0%B8%A1%E0%B8%97%E0%B8%A3%E0%B8%87/?utm_source=chatgpt.com" class="btn custom-button">ความเชี่ยวชาญ</a>
+                    </div>
+                </div>
+            </div>
+                <!-- Card 6 -->
+                <div class="col">
+                    <div class="card custom-card">
+                      <img src="https://img5.pic.in.th/file/secure-sv1/2a197029d23055b11ee0b3222faedbf1.jpg" alt="ทักศิณา" border="0">
+                      <div class="card-body text-center">
+                          <h5 class="card-title">อาจารย์ทักศิณา คงสมลาภ </h5>
+                          <p>ตำเเหน่ง อาจารย์</p>
+                          <a href="https://sci.rmutsb.ac.th/2024/12/23/%e0%b8%ad%e0%b8%b2%e0%b8%88%e0%b8%b2%e0%b8%a3%e0%b8%a2%e0%b9%8c%e0%b8%97%e0%b8%b1%e0%b8%81%e0%b8%a8%e0%b8%b4%e0%b8%93%e0%b8%b2-%e0%b8%84%e0%b8%87%e0%b8%aa%e0%b8%a1%e0%b8%a5%e0%b8%b2%e0%b8%a0/ " class="btn custom-button">ความเชี่ยวชาญ</a>
+                    </div>
+                  </div>
+                </div>
+                  <!-- Card 7 -->
+                <div class="col">
+                    <div class="card custom-card">
+                      <img src="https://img5.pic.in.th/file/secure-sv1/058adc0858ab5ed7ce46eba7b1442161.jpg" alt="สุนทรี" border="0">
+                      <div class="card-body text-center">
+                          <h5 class="card-title">อาจารย์สุนทรี แก่นแก้ว</h5>
+                          <p>ตำเเหน่ง อาจารย์</p>
+                          <a href="https://sci.rmutsb.ac.th/2024/12/23/%e0%b8%ad%e0%b8%b2%e0%b8%88%e0%b8%b2%e0%b8%a3%e0%b8%a2%e0%b9%8c%e0%b8%aa%e0%b8%b8%e0%b8%99%e0%b8%97%e0%b8%a3%e0%b8%b5-%e0%b9%81%e0%b8%81%e0%b9%88%e0%b8%99%e0%b9%81%e0%b8%81%e0%b9%89%e0%b8%a7/ " class="btn custom-button">ความเชี่ยวชาญ</a>
+                    </div>
+                  </div>
+                </div>
+                  <!-- Card 8 -->
+                <div class="col">
+                    <div class="card custom-card">
+                      <img src="https://img5.pic.in.th/file/secure-sv1/siwapornee6653a8b0cc714d.jpg" alt="siwaporn" border="0">
+                      <div class="card-body text-center">
+                          <h5 class="card-title">ดร.ศิวพร ลินทะลึก</h5>
+                          <p>ตำเเหน่ง อาจารย์พิเศษ</p>
+                          <a href=" https://scholar.google.com/citations?hl=th&user=DufUcJUAAAAJ&utm_source=chatgpt.com" class="btn custom-button">ความเชี่ยวชาญ</a>
+                        </div>
+                    </div>
+                </div>  
+                <!-- Card 9 -->
+                <div class="col">
+                  <div class="card custom-card">
+                    <img src="https://img5.pic.in.th/file/secure-sv1/yossaran.jpg" alt="yossaran" border="0">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">อาจารย์ ยศรัณย์ จุลอำพันธ์</h5>
+                        <p>ตำเเหน่ง อาจารย์พิเศษ</p>
+                        <a href=" " class="btn custom-button">ความเชี่ยวชาญ</a>
+                  </div>
+                </div>
+            </div>
+                 <!-- Card 10 -->
+                 <div class="col">
+                  <div class="card custom-card">
+                    <img src="https://img2.pic.in.th/pic/17e8d79b915caf823.png" alt="อธิวัฒน์1" border="0">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">อาจารย์อธิวัฒน์ เกียรติพีรติกลุ</h5>
+                        <p>ตำเเหน่ง อาจารย์พิเศษ</p>
+                        <a href="  " class="btn custom-button">ความเชี่ยวชาญ</a>
+                      </div>
+                  </div>
+              </div>  
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
